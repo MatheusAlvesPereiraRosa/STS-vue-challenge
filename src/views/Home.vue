@@ -1,22 +1,27 @@
 <script setup>
-import { computed } from 'vue'
-import store from '../store'
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex';
+import ProductList from '../components/ProductList.vue'
 
-const products = computed(() => store.state.products)
+const store = useStore()
+
+const products = computed(() => {
+  console.log(products)
+  return store.state.products;
+});
+
 </script>
 
 <template>
   <main>
-    <div class="flex my-20 mx-10 justify-center">
+    <div class="flex my-20 mx-20 justify-center">
       <input
         type="text"
-        class="rounded border-2 border-purple-700 w-full"
+        class="rounded border-2 border-purple-700 w-full text-2xl"
         placeholder="Procurar pelos produtos"
       />
     </div>
 
-    <div class="mx-10" v-for="product in products" :key="product.id">
-      <h1>{{product.name}}</h1>
-    </div>
+    <ProductList :products="products"/>
   </main>
 </template>
