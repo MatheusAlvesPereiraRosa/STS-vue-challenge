@@ -5,10 +5,12 @@ import ProductList from '../components/ProductList.vue'
 
 const store = useStore()
 
-const products = computed(() => {
-  console.log(products)
-  return store.state.products;
+const searchQuery = computed({
+  get: () => store.state.products.searchQuery,
+  set: (value) => store.dispatch('updateSearchQuery', value),
 });
+
+const filteredProducts = computed(() => store.getters['filteredProducts']);
 
 </script>
 
@@ -17,11 +19,12 @@ const products = computed(() => {
     <div class="flex py-20 px-20 justify-center">
       <input
         type="text"
+        v-model="searchQuery"
         class="rounded border-2 border-purple-700 w-full text-2xl text-orange-500 placeholder:text-orange-300 active:border-purple-700"
         placeholder="Procurar pelos produtos"
       />
     </div>
 
-    <ProductList :products="products"/>
+    <ProductList :products="filteredProducts"/>
   </main>
 </template>
