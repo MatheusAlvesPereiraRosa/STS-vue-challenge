@@ -8,8 +8,7 @@
       <img class="aspect-square object-cover hover:animate-pulse" :src="product.imageUrl" />
 
       <p class="mt-5 text-2xl">{{ product.name }}</p>
-      <p>Categoria: Algo</p>
-      <p>Tamanho: P</p>
+      <p>Categoria: {{ product.type }}</p>
 
       <h3 class="mt-2 text-2xl"><span class="text-green-800">R$:</span> {{ product.price }}</h3>
     </div>
