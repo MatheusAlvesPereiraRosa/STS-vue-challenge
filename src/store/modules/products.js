@@ -57,15 +57,24 @@ export default {
         imageUrl:
           'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80'
       }
-    ]
+    ],
+    searchQuery: '',
   },
   mutations: {
-
+    setSearchQuery(state, query) {
+      state.searchQuery = query
+    }
   },
   actions: {
-
+    updateSearchQuery({ commit }, query) {
+      commit('setSearchQuery', query)
+    }
   },
   getters: {
-
+    filteredProducts(state) {
+      return state.products.filter((product) =>
+        product.name.toLowerCase().includes(state.searchQuery.toLowerCase())
+      );
+    },
   }
 }

@@ -5,14 +5,12 @@ import ProductList from '../components/ProductList.vue'
 
 const store = useStore()
 
-const searchQuery = ref('')
-
-const filteredProducts = computed(() => {
-  const products = store.state.products.products;
-  return products.filter((product) =>
-    product.name.toLowerCase().includes(searchQuery.value.toLowerCase())
-  );
+const searchQuery = computed({
+  get: () => store.state.products.searchQuery,
+  set: (value) => store.dispatch('updateSearchQuery', value),
 });
+
+const filteredProducts = computed(() => store.getters['filteredProducts']);
 
 </script>
 

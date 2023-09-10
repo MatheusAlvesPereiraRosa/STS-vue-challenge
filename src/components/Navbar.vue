@@ -3,9 +3,6 @@
     <nav class="bg-orange-500 flex justify-between items-center">
       <RouterLink to="/" class="p-5 text-2xl text-purple-950 hover:text-white">Home</RouterLink>
       <ul class="flex items-center">
-        <li>
-          <RouterLink :to="{name: 'byName'}" class="p-5 text-2xl text-purple-950 hover:text-white">Pesquisar por nome</RouterLink>
-        </li>
         <li
           class="p-5 hover:transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-125 hover:cursor-pointer duration-300"
         >
