@@ -13,11 +13,11 @@ const products = computed(() => {
 </script>
 
 <template>
-  <main>
-    <div class="flex my-20 mx-20 justify-center">
+  <main class="bg-purple-400">
+    <div class="flex py-20 px-20 justify-center">
       <input
         type="text"
-        class="rounded border-2 border-purple-700 w-full text-2xl"
+        class="rounded border-2 border-purple-700 w-full text-2xl text-orange-500 placeholder:text-orange-300 active:border-purple-700"
         placeholder="Procurar pelos produtos"
       />
     </div>
