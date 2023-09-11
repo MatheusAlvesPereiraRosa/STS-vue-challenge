@@ -7,7 +7,7 @@ export default {
     minPrice: 0,
     maxPrice: 0,
     selectedPriceRange: [0, 0],
-    selectedTypeFilter: ''
+    selectedTypeFilter: '',
   },
   mutations: {
     setSearchQuery(state, query) {
@@ -20,7 +20,7 @@ export default {
       state.selectedTypeFilter = typeFilter
 
       console.log(state.selectedTypeFilter)
-    }
+    },
   },
   actions: {
     updateSearchQuery({ commit }, query) {
@@ -47,13 +47,13 @@ export default {
       }
 
       // Aplicar pesquisa por filtro de preço
-      if (state.selectedPriceFilter) {
+      /*if (state.selectedPriceFilter) {
         const [minPrice, maxPrice] = state.selectedPriceRange
         filteredProducts = filteredProducts.filter((product) => {
           const price = product.price
           return price >= minPrice && price <= maxPrice
         })
-      }
+      }*/
 
       // Aplicar pesquisa por filtro de roupa
       if (state.selectedTypeFilter) {
@@ -67,7 +67,7 @@ export default {
     uniqueTypes(state) {
       const uniqueTypes = new Set()
       state.products.forEach((product) => {
-        uniqueTypes.add(product.type) // Replace 'type' with the actual property name
+        uniqueTypes.add(product.type)
       })
       return Array.from(uniqueTypes)
     }

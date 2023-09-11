@@ -10,17 +10,21 @@
       <p class="mt-5 text-2xl">{{ product.name }}</p>
       <p>Categoria: {{ product.type }}</p>
 
-      <h3 class="mt-2 text-2xl"><span class="text-green-800">R$:</span> {{ product.price }}</h3>
+      <div class="flex justify-between items-center mt-2">
+        <CartButton :product="product"/>
+        <h3 class="text-2xl"><span class="text-green-800">R$:</span> {{ product.price }}</h3>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useStore } from 'vuex'
+import CartButton from '../components/CartButton.vue'
 
 const props = defineProps({
   products: Array
 })
+
 </script>
 
 <style></style>

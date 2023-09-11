@@ -62,7 +62,7 @@ const sliderMax = ref(80)
     >
       <input
         type="text"
-        class="rounded border-1 border-purple-700 w-full text-2xl text-orange-500 placeholder:text-orange-300 active:border-purple-700 max-[640px]:mb-5"
+        class="rounded border-2 border-purple-400 w-full text-2xl text-orange-500 placeholder:text-orange-400 active:border-purple-700 max-[640px]:mb-5"
         placeholder="Procurar pelos produtos"
         v-model="searchQuery"
       />
@@ -72,10 +72,10 @@ const sliderMax = ref(80)
 
         <div>
           <select
-            class="rounded border-1 border-purple-700 text-xl text-orange-500 placeholder:text-orange-300 active:border-purple-700"
+            class="rounded border-2 border-purple-400 text-xl text-orange-500 placeholder:text-orange-400 active:border-purple-700 max-[640px]:w-full"
             v-model="selectedTypeFilter"
           >
-            <option value="">Selecione um gênero</option>
+            <option value="">Tipo de roupa</option>
             <option v-for="type in uniqueTypes" :key="type" :value="type">{{ type }}</option>
           </select>
         </div>
