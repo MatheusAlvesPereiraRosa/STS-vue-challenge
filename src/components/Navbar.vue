@@ -1,20 +1,22 @@
 <template>
   <header>
     <nav class="bg-orange-500 flex justify-between items-center">
-      <RouterLink to="/" class="p-5 text-2xl text-purple-950 hover:text-white">Home</RouterLink>
+      <RouterLink to="/" class="p-2 text-2xl text-purple-950 hover:text-white">
+        <img class="w-20 h-auto" src="/assets/logo.png" />
+      </RouterLink>
       <ul class="flex items-center">
         <li
           class="p-5 hover:transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-125 hover:cursor-pointer duration-300"
         >
           <RouterLink to="/cart">
-            <div class="flex">
+            <div class="flex relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                stroke="purple"
-                class="w-10 h-10"
+                stroke="currentColor"
+                class="w-10 h-10 text-purple-950"
               >
                 <path
                   stroke-linecap="round"
@@ -23,7 +25,10 @@
                 />
               </svg>
 
-              <span class="text-xs text-white bg-purple-900 py-1 px-2 rounded-full mt-2.5 mb-auto" v-if="quantity > 0">
+              <span
+                class="absolute span text-xs text-white bg-purple-900 py-1 px-2 rounded-full mt-2.5 mb-auto"
+                v-if="quantity > 0"
+              >
                 {{ quantity }}
               </span>
             </div>
@@ -47,3 +52,10 @@ const quantity = computed(() => {
 
 console.log(quantity)
 </script>
+
+<style scoped>
+.span {
+  top: -15px;
+  left: 30px;
+}
+</style>

@@ -43,7 +43,7 @@ export default {
   },
   actions: {
     addToCart(context, payload) {
-      console.log(context)
+      //console.log(context)
       //console.log(payload.id)
       const prodId = payload.id;
       const products = context.rootGetters.filteredProducts;

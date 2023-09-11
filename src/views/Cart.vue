@@ -3,8 +3,8 @@
     <h1 class="text-6xl text-center my-10">Seu carrinho</h1>
 
     <div class="mx-20 mb-10">
-      <h3 class="text-3xl">Total Amount: R$ {{ total }}</h3>
-      <h3 class="text-3xl">Total Amount: R$ {{ quantity }}</h3>
+      <h3 class="text-3xl">Quantidade de itens: {{ quantity }}</h3>
+      <h3 class="text-3xl">Total: R$ {{ total }}</h3>
     </div>
 
     <CartList :products="products" />
@@ -24,12 +24,13 @@ const total = computed(() => {
 })
 
 const products = computed(() => {
-  return store.getters['cart'];
-});
+  return store.getters['cart']
+})
 
 const quantity = computed(() => {
-  return store.getters['quantity'];
-});
+  return store.getters['quantity']
+})
+
 </script>
 
 <style></style>

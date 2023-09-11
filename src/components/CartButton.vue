@@ -1,5 +1,9 @@
 <template>
-  <button class="bg-orange-600 p-2 rounded" @click="addToCart(product)">
+  <button
+    class="bg-orange-600 p-2 rounded transition-transform transform hover:scale-110"
+    :class="{ 'animate-bounce': isBouncing }"
+    @click="handleButtonClick(product)"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -19,22 +23,33 @@
 
 <script setup>
 import { useStore } from 'vuex'
+import { ref } from 'vue'
 
 const store = useStore()
 
-const addToCart = (product) => {
+const isBouncing = ref(false)
+
+const handleButtonClick = (product) => {
   console.log(`O produto ${product}`)
   store.dispatch('addToCart', product)
+
+  isBouncing.value = true
+  setTimeout(() => {
+    isBouncing.value = false
+  }, 250)
 }
+
+/*const addToCart = (product) => {
+  console.log(`O produto ${product}`)
+  store.dispatch('addToCart', product)
+}*/
 
 const props = defineProps({
   product: {
     id: Number,
     name: String,
     imageSrc: String,
-    price: Number,
+    price: Number
   }
 })
-
 </script>
-
