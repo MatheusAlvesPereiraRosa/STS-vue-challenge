@@ -11,7 +11,7 @@
       <p>Categoria: {{ product.type }}</p>
 
       <div class="flex justify-between items-center mt-2">
-        <CartButton :product="product"/>
+        <CartButton :product="product" />
         <h3 class="text-2xl"><span class="text-green-800">R$:</span> {{ product.price }}</h3>
       </div>
     </div>
@@ -24,7 +24,6 @@ import CartButton from '../components/CartButton.vue'
 const props = defineProps({
   products: Array
 })
-
 </script>
 
 <style></style>

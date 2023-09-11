@@ -4,7 +4,7 @@ export default {
   state: {
     products: products,
     searchQuery: '',
-    selectedTypeFilter: '',
+    selectedTypeFilter: ''
   },
   mutations: {
     setSearchQuery(state, query) {
@@ -12,7 +12,7 @@ export default {
     },
     setSelectedTypeFilter(state, typeFilter) {
       state.selectedTypeFilter = typeFilter
-    },
+    }
   },
   actions: {
     updateSearchQuery({ commit }, query) {

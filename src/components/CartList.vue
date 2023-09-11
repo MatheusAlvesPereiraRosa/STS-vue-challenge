@@ -54,9 +54,9 @@ const addToCart = (product) => {
   store.dispatch('addToCart', product)
 }
 
-const removeFromCart = (product => {
+const removeFromCart = (product) => {
   store.dispatch('removeFromCart', product)
-})
+}
 
 const props = defineProps({
   products: Array

@@ -50,7 +50,6 @@ const store = useStore()
 const quantity = computed(() => {
   return store.getters['quantity']
 })
-
 </script>
 
 <style scoped>

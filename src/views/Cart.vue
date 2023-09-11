@@ -1,9 +1,7 @@
 <template>
   <main>
     <div class="flex flex-row justify-center items-center">
-      <h1 class="text-6xl text-center text-purple-950 my-20">
-        Seu carrinho
-      </h1>
+      <h1 class="text-6xl text-center text-purple-950 my-20">Seu carrinho</h1>
       <img class="w-[7rem] h-[7rem] ml-4" src="/assets/list.png" />
     </div>
 
