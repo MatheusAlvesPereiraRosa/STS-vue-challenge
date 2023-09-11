@@ -46,11 +46,11 @@ import { ref, computed } from 'vue'
 
 const store = useStore()
 
+// Mostrar a quantidade de produtos no carrinho
 const quantity = computed(() => {
   return store.getters['quantity']
 })
 
-console.log(quantity)
 </script>
 
 <style scoped>

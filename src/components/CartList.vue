@@ -51,7 +51,6 @@ import { useStore } from 'vuex'
 const store = useStore()
 
 const addToCart = (product) => {
-  console.log(`O produto ${product}`)
   store.dispatch('addToCart', product)
 }
 

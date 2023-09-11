@@ -25,9 +25,6 @@ export default {
       }
       state.qty++;
       state.total += productData.price;
-
-      console.log(state.cart)
-      console.log(state.total)
     },
     removeProductFromCart(state, payload) {
       const prodId = payload.id;
@@ -37,9 +34,12 @@ export default {
 
       if (productInCartIndex !== -1) {
         const prodData = state.cart[productInCartIndex];
+
+        // Se tiver mais de um produto, diminuir um
         if (prodData.qty > 1) {
           prodData.qty -= 1;
         } else {
+          // Caso contrário, deletar item
           state.cart.splice(productInCartIndex, 1);
         }
         state.qty -= 1;
@@ -51,7 +51,6 @@ export default {
     addToCart(context, payload) {
       const prodId = payload.id;
       const products = context.rootGetters.filteredProducts;
-      console.log(products)
       const product = products.find((prod) => prod.id === prodId);
       context.commit("addProductToCart", product);
     },
