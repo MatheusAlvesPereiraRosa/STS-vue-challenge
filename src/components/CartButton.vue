@@ -29,8 +29,8 @@ const store = useStore()
 
 const isBouncing = ref(false)
 
+// Função para lidar com o click, fazer a animação e adicionar no carrinho
 const handleButtonClick = (product) => {
-  console.log(`O produto ${product}`)
   store.dispatch('addToCart', product)
 
   isBouncing.value = true
@@ -38,11 +38,6 @@ const handleButtonClick = (product) => {
     isBouncing.value = false
   }, 250)
 }
-
-/*const addToCart = (product) => {
-  console.log(`O produto ${product}`)
-  store.dispatch('addToCart', product)
-}*/
 
 const props = defineProps({
   product: {
