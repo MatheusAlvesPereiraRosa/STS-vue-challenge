@@ -58,9 +58,10 @@ watchEffect(() => {
 </script>
 <template>
   <div class="lg:max-xl:ml-4 lg:max-xl:px-5 max-[640px]:mb-5">
-    <h1 class="text-2xl">Pesquisar por preço</h1>
-    R$: {{ minPrice }} - R$: {{ maxPrice }}
+    <h1 class="text-xl text-orange">Pesquisar por preço</h1>
+   
     <div class="custom-slider">
+      R$: {{ min }}
       <input
         ref="slider"
         :value="sliderValue"
@@ -71,6 +72,7 @@ watchEffect(() => {
         :step="step"
         class="slider"
       />
+      R$: {{ max }}
       <input
         :value="sliderValue"
         @input="({ target }) => (sliderValue = parseFloat(target.value))"
@@ -83,6 +85,7 @@ watchEffect(() => {
     </div>
   </div>
 </template>
+
 <style scoped>
 .custom-slider {
   --trackHeight: 0.5rem;

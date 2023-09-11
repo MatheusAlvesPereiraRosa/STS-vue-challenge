@@ -11,17 +11,17 @@ const searchQuery = computed({
   set: (value) => store.dispatch('updateSearchQuery', value)
 })
 
-const selectedPriceFilter = computed({
+/*const selectedPriceFilter = computed({
   get: () => store.state.products.searchQuery,
   set: (value) => store.dispatch('updatePriceFilter', value)
-})
+})*/
 
 const selectedTypeFilter = computed({
   get: () => store.state.products.selectedTypeFilter,
   set: (value) => store.dispatch('updateSelectedTypeFilter', value)
 })
 
-const [minPrice, maxPrice] = store.state.products.selectedPriceRange
+/*const [minPrice, maxPrice] = store.state.products.selectedPriceRange*/
 const uniqueTypes = store.getters['uniqueTypes']
 
 const filteredProducts = computed(() => {
@@ -36,10 +36,10 @@ const filteredProducts = computed(() => {
   }
 
   // Aplicar filtro por preço
-  filteredProducts = filteredProducts.filter((product) => {
+  /*filteredProducts = filteredProducts.filter((product) => {
     const price = product.price
     return price >= minPrice && price <= maxPrice
-  })
+  })*/
 
   // Aplicar filtro por tipo/categoria de roupa
   if (store.state.products.selectedTypeFilter) {
