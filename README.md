@@ -1,35 +1,37 @@
-# vue-project
+# Tech-challenge 
 
-This template should help get you started developing with Vue 3 in Vite.
+Seja bem vindo ao meu projeto, sou Matheus Alves e esse projeto foi feito para concorrer a vaga de desenvolvedor Front-End
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Demonstração
 
-## Customize configuration
+O projeto possui uma versão hospedada para facilitar os testes, segue o link abaixo
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+[https://tech-challenge-w.netlify.app/](https://vue3-eshop.netlify.app/)
 
-## Project Setup
 
-```sh
-npm install
+## Instalação
+
+Rode o comando npm i no terminal que desejar antes de iniciar o projeto
+
+```bash
+  npm install
 ```
 
-### Compile and Hot-Reload for Development
+Após isso rode o projeto com o comando npm start
 
-```sh
-npm run dev
+```bash
+  npm run dev
 ```
 
-### Compile and Minify for Production
+E pronto, o projeto já vai estar funcional e pronto para ser visualizado/testado em sua máquina
+    
+## Bibliotecas/Frameworks utilizados
 
-```sh
-npm run build
-```
+**Vuex:** É uma biblioteca que permite gerenciamento de estados globais pela criação de store(s). Acrescenta a ideia de modules, actions, getters, mutations e states ao estado para mudar, pegar e gerenciar os estados criados.
 
-### Lint with [ESLint](https://eslint.org/)
+**Vue-router:** É uma biblioteca que facilita a navegação entre componentes no Vue.
 
-```sh
-npm run lint
-```
+**tailwind css:** É um framework de estilização Front-End com classes e funções que podem ser acessadas nas próprias classes que ajudam na flexibilidade do código. O escolhi justamente por causa dessa facilidade na adaptação do código, sendo que quase não precisei escrever nenhuma estilização.
+
+**Prettier e Eslint:** São plugins que permitem ter uma estilização, identação e organização do código de forma mais uniforme.
