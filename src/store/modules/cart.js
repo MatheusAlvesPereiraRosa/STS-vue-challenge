@@ -29,16 +29,26 @@ export default {
       console.log(state.cart)
       console.log(state.total)
     },
-
     removeProductFromCart(state, payload) {
       const prodId = payload.id;
       const productInCartIndex = state.cart.findIndex(
         (cartItem) => cartItem.id === prodId
       );
-      const prodData = state.cart[productInCartIndex];
-      state.cart.splice(productInCartIndex, 1);
-      state.qty -= prodData.qty;
-      state.total -= prodData.price * prodData.qty;
+
+      if (productInCartIndex !== -1) {
+        const prodData = state.cart[productInCartIndex];
+        if (prodData.qty > 1) {
+          // Decrease the quantity by one if it's greater than 1
+          prodData.qty -= 1;
+        } else {
+          // Remove the product from the cart if the quantity is 1 or less
+          state.cart.splice(productInCartIndex, 1);
+        }
+
+        // Update the total and quantity in the cart
+        state.qty -= 1;
+        state.total -= prodData.price;
+      }
     },
   },
   actions: {

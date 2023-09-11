@@ -1,7 +1,7 @@
 <template>
   <button
-    class="bg-orange-600 p-2 rounded transition-transform transform hover:scale-110"
-    :class="{ 'animate-bounce': isBouncing }"
+    class="bg-orange-600 p-2 rounded ease-in-out delay-50 duration-125"
+    :class="{ 'transition hover:-translate-y-1 hover:scale-125': isBouncing }"
     @click="handleButtonClick(product)"
   >
     <svg

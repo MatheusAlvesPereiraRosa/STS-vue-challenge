@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="bg-orange-500 flex justify-between items-center">
+    <nav class="bg-orange-500 px-2 flex justify-between items-center">
       <RouterLink to="/" class="p-2 text-2xl text-purple-950 hover:text-white">
         <img class="w-20 h-auto" src="/assets/logo.png" />
       </RouterLink>
@@ -16,7 +16,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-10 h-10 text-purple-950"
+                class="w-[3.1rem] h-[3.1rem] text-purple-950"
               >
                 <path
                   stroke-linecap="round"
@@ -26,7 +26,7 @@
               </svg>
 
               <span
-                class="absolute span text-xs text-white bg-purple-900 py-1 px-2 rounded-full mt-2.5 mb-auto"
+                class="absolute top-[-17px] left-[37px] text-xs text-white bg-purple-900 py-1.5 px-2 rounded-full mt-2.5 mb-auto"
                 v-if="quantity > 0"
               >
                 {{ quantity }}
@@ -55,7 +55,7 @@ console.log(quantity)
 
 <style scoped>
 .span {
-  top: -15px;
-  left: 30px;
+  top: -17px;
+  left: 27.5px;
 }
 </style>

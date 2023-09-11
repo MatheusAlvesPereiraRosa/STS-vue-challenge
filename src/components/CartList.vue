@@ -14,7 +14,7 @@
         <h3 class="text-2xl"><span class="text-green-800">R$:</span> {{ product.price }}</h3>
 
         <div class="flex items-center">
-          <button class="mr-2 bg-green-900 text-white" @click="addToCart(product)">
+          <button class="mr-2 p-1 rounded bg-green-900 text-white" @click="addToCart(product)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -26,8 +26,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
           </button>
-          <p class="text-xl">{{ product.qty }}</p>
-          <button class="ml-2 bg-green-900 text-white" @click="removeFromCart(product)">
+          <p class="text-2xl">{{ product.qty }}</p>
+          <button class="ml-2 p-1 rounded bg-green-900 text-white" @click="removeFromCart(product)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
