@@ -67,7 +67,7 @@ export const products = [
     id: '9',
     name: 'Rap Cap Branco',
     type: 'Boné',
-    price: 250,
+    price: 75,
     imageUrl:
       'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FwfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
   },
@@ -75,7 +75,7 @@ export const products = [
     id: '10',
     name: 'Black Hood',
     type: 'Gorro',
-    price: 250,
+    price: 100,
     imageUrl:
       'https://images.unsplash.com/photo-1612887726773-e64e20cf08fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNhcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60'
   },
@@ -83,7 +83,7 @@ export const products = [
     id: '11',
     name: 'Nike topshoes',
     type: 'Tênis',
-    price: 250,
+    price: 500,
     imageUrl:
       'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2FwYXRvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
   },
@@ -99,7 +99,7 @@ export const products = [
     id: '13',
     name: 'Camiseta de compressão',
     type: 'Academia',
-    price: 250,
+    price: 350,
     imageUrl:
       'https://images.unsplash.com/photo-1661439193765-392d81462003?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNhbWlzZSUyMGFjYWRlbWlhfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
   }
