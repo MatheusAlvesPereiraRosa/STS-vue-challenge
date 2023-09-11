@@ -38,14 +38,10 @@ export default {
       if (productInCartIndex !== -1) {
         const prodData = state.cart[productInCartIndex];
         if (prodData.qty > 1) {
-          // Decrease the quantity by one if it's greater than 1
           prodData.qty -= 1;
         } else {
-          // Remove the product from the cart if the quantity is 1 or less
           state.cart.splice(productInCartIndex, 1);
         }
-
-        // Update the total and quantity in the cart
         state.qty -= 1;
         state.total -= prodData.price;
       }
@@ -53,8 +49,6 @@ export default {
   },
   actions: {
     addToCart(context, payload) {
-      //console.log(context)
-      //console.log(payload.id)
       const prodId = payload.id;
       const products = context.rootGetters.filteredProducts;
       console.log(products)

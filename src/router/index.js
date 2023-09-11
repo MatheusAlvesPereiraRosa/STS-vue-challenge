@@ -15,16 +15,10 @@ const router = createRouter({
           component: Home
         },
         {
-          path: '/about',
-          name: 'about',
-          // lazy-loaded component
-          component: () => import('../views/AboutView.vue')
-        },
-        {
           path: '/cart',
           name: 'cart',
           component: () => import('../views/Cart.vue')
-        }
+        },
       ]
     }
   ]

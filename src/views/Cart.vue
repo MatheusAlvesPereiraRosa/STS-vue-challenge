@@ -27,7 +27,7 @@ import CartList from '../components/CartList.vue'
 const store = useStore()
 
 const total = computed(() => {
-  return store.state.cart.total
+  return store.getters['totalSum']
 })
 
 const products = computed(() => {
