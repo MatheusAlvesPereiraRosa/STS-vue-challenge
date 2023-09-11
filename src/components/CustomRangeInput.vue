@@ -1,3 +1,4 @@
+<!-- ./src/components/CustomSlider.vue -->
 <script setup>
 import { ref, watchEffect } from 'vue'
 
@@ -56,26 +57,30 @@ watchEffect(() => {
 })
 </script>
 <template>
-  <div class="custom-slider">
-    <input
-      ref="slider"
-      :value="sliderValue"
-      @input="({ target }) => (sliderValue = parseFloat(target.value))"
-      type="range"
-      :min="min"
-      :max="max"
-      :step="step"
-      class="slider"
-    />
-    <input
-      :value="sliderValue"
-      @input="({ target }) => (sliderValue = parseFloat(target.value))"
-      :min="min"
-      :max="max"
-      :step="step"
-      type="number"
-      class="input"
-    />
+  <div class="lg:max-xl:ml-4 lg:max-xl:px-5 max-[640px]:mb-5">
+    <h1 class="text-2xl">Pesquisar por preço</h1>
+    R$: {{ minPrice }} - R$: {{ maxPrice }}
+    <div class="custom-slider">
+      <input
+        ref="slider"
+        :value="sliderValue"
+        @input="({ target }) => (sliderValue = parseFloat(target.value))"
+        type="range"
+        :min="min"
+        :max="max"
+        :step="step"
+        class="slider"
+      />
+      <input
+        :value="sliderValue"
+        @input="({ target }) => (sliderValue = parseFloat(target.value))"
+        :min="min"
+        :max="max"
+        :step="step"
+        type="number"
+        class="input"
+      />
+    </div>
   </div>
 </template>
 <style scoped>

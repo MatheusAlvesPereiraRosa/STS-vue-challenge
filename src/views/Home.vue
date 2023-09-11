@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import ProductList from '../components/ProductList.vue'
+import CustomRangeInput from '../components/CustomRangeInput.vue'
 
 const store = useStore()
 
@@ -49,6 +50,9 @@ const filteredProducts = computed(() => {
 
   return filteredProducts
 })
+
+const sliderMin = ref(50)
+const sliderMax = ref(80)
 </script>
 
 <template>
@@ -64,11 +68,7 @@ const filteredProducts = computed(() => {
       />
 
       <div class="flex sm:justify-between sm:mt-5 max-[640px]:flex-col">
-        <div class="lg:max-xl:ml-4 lg:max-xl:px-5 max-[640px]:mb-5">
-          <h1 class="text-2xl">Pesquisar por preço</h1>
-          <input class="w-full mt-2" type="range" id="vol" name="vol" min="0" max="50" />
-          R$: {{ minPrice }} - R$: {{ maxPrice }}
-        </div>
+        <CustomRangeInput :max="700" v-model:min-value="sliderMin" v-model:max-value="sliderMax" />
 
         <div>
           <select
@@ -86,5 +86,4 @@ const filteredProducts = computed(() => {
   </main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
