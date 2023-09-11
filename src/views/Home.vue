@@ -20,33 +20,35 @@ const selectedTypeFilter = computed({
   set: (value) => store.dispatch('updateSelectedTypeFilter', value)
 })
 
+const [minPrice, maxPrice] = store.state.products.selectedPriceRange
+const uniqueTypes = store.getters['uniqueTypes']
+
 const filteredProducts = computed(() => {
   const products = store.state.products.products
-  let filteredProducts = [...products] // Create a copy to avoid mutating the original array
+  let filteredProducts = [...products]
 
-  // Apply search filter
+  // Aplicar filtro por nome
   if (store.state.products.searchQuery) {
     filteredProducts = filteredProducts.filter((product) =>
       product.name.toLowerCase().includes(store.state.products.searchQuery.toLowerCase())
     )
   }
 
-  // Apply price filter
-  /*const [minPrice, maxPrice] = store.state.products.selectedPriceRange
+  // Aplicar filtro por preço
   filteredProducts = filteredProducts.filter((product) => {
     const price = product.price
     return price >= minPrice && price <= maxPrice
-  })*/
+  })
 
-  // Apply type/category filter
+  // Aplicar filtro por tipo/categoria de roupa
   if (store.state.products.selectedTypeFilter) {
-    filteredProducts = filteredProducts.filter((product) => product.type === selectedTypeFilter)
+    filteredProducts = filteredProducts.filter(
+      (product) => product.type === store.state.products.selectedTypeFilter
+    )
   }
 
   return filteredProducts
 })
-
-const uniqueTypes = computed(() => store.getters['uniqueTypes'])
 </script>
 
 <template>
@@ -65,18 +67,24 @@ const uniqueTypes = computed(() => store.getters['uniqueTypes'])
         <div class="lg:max-xl:ml-4 lg:max-xl:px-5 max-[640px]:mb-5">
           <h1 class="text-2xl">Pesquisar por preço</h1>
           <input class="w-full mt-2" type="range" id="vol" name="vol" min="0" max="50" />
+          R$: {{ minPrice }} - R$: {{ maxPrice }}
         </div>
 
-        <select
-          class="rounded border-1 border-purple-700 text-xl text-orange-500 placeholder:text-orange-300 active:border-purple-700"
-          v-model="selectedTypeFilter"
-        >
-          <option value="">Selecione um gênero</option>
-          <option v-for="type in uniqueTypes" :key="type" :value="type">{{ type }}</option>
-        </select>
+        <div>
+          <select
+            class="rounded border-1 border-purple-700 text-xl text-orange-500 placeholder:text-orange-300 active:border-purple-700"
+            v-model="selectedTypeFilter"
+          >
+            <option value="">Selecione um gênero</option>
+            <option v-for="type in uniqueTypes" :key="type" :value="type">{{ type }}</option>
+          </select>
+        </div>
       </div>
     </div>
 
     <ProductList :products="filteredProducts" />
   </main>
 </template>
+
+<style scoped>
+</style>
