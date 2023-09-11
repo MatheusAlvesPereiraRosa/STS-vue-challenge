@@ -1,15 +1,10 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import ProductList from '../components/ProductList.vue'
 import CustomRangeInput from '../components/CustomRangeInput.vue'
 
 const store = useStore()
-
-// Iniciando 
-onMounted(async () => {
-  await store.commit('initialiseStore')
-})
 
 const searchQuery = computed({
   get: () => store.state.products.searchQuery,

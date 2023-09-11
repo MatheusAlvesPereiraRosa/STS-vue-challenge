@@ -1,87 +1,40 @@
 <template>
-  <div v-if="product" class="input-group plus-minus">
-    <button
-      class="btn btn-outline-secondary"
-      :class="loading ? 'disabled' : ''"
-      @click="addOrRemove(-1)"
-      type="button"
-      id="button-addon1"
+  <button class="bg-orange-600 p-2 rounded" @click="addToCart(product)">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="purple"
+      class="w-6 h-6"
     >
-      -
-    </button>
-    <input
-      type="number"
-      v-model="qty"
-      disabled
-      class="form-control form-control-sm"
-      placeholder=""
-      aria-label="Example text with button addon"
-      aria-describedby="button-addon1"
-    />
-    <button
-      class="btn btn-outline-secondary"
-      :class="loading ? 'disabled' : ''"
-      @click="addOrRemove(1)"
-      type="button"
-      id="button-addon1"
-    >
-      +
-    </button>
-  </div>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+      />
+    </svg>
+  </button>
 </template>
-<script>
-import { toast } from 'vue3-toastify'
-import 'vue3-toastify/dist/index.css'
-export default {
-  name: 'CartAddRemove',
-  props: ['product'],
-  data() {
-    return {
-      qty: 1,
-      loading: false
-    }
-  },
-  methods: {
-    async addOrRemove(number) {
-      this.loading = true
-      if (number == 1) {
-        if (this.qty < 10) {
-          this.qty++
-          this.product.qty = this.qty
-          await this.$store.commit('updateCart', { product: this.product })
-          toast.success('cart updated', {
-            autoClose: 1000
-          })
-        } else {
-          toast.warning('You reached the limit', {
-            autoClose: 3000
-          })
-        }
-      }
-      if (number == -1) {
-        if (this.qty > 1) {
-          this.qty--
-          this.product.qty = this.qty
-          await this.$store.commit('updateCart', { product: this.product })
-          toast.success('cart updated', {
-            autoClose: 1000
-          })
-        } else {
-          toast.warning('You reached the limit', {
-            autoClose: 3000
-          })
-        }
-      }
-      this.loading = false
-    }
-  },
-  mounted() {
-    this.qty = this.product.qty
+
+<script setup>
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+const addToCart = (product) => {
+  console.log(`O produto ${product}`)
+  store.dispatch('addToCart', product)
+}
+
+const props = defineProps({
+  product: {
+    id: Number,
+    name: String,
+    imageSrc: String,
+    price: Number,
   }
-}
+})
+
 </script>
-<style>
-.plus-minus input {
-  max-width: 50px;
-}
-</style>
+

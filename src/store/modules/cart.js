@@ -1,53 +1,72 @@
 export default {
-  store: {
-    state: {
-      cart: [],
-      cartTotal: 0,
-    }
+  state: {
+    cart: [],
+    total: 0,
+    qty: 0,
   },
   mutations: {
-    async initialiseStore(state) {
-      if (localStorage.getItem('cart')) {
-        state.cart = JSON.parse(localStorage.getItem('cart'))
+    addProductToCart(state, payload) {
+      const productData = payload;
+      const productInCartIndex = state.cart.findIndex(
+        (ci) => ci.id === productData.id
+      );
+      if (productInCartIndex >= 0) {
+        state.cart[productInCartIndex].qty++;
+      } else {
+        const newItem = {
+          id: productData.id,
+          name: productData.name,
+          type: productData.type,
+          imageUrl: productData.imageUrl,
+          price: productData.price,
+          qty: 1,
+        };
+        state.cart.push(newItem);
       }
-      if (localStorage.getItem('cartTotal')) {
-        state.cartTotal = parseFloat(localStorage.getItem('cartTotal'))
-      }
-      return true;
+      state.qty++;
+      state.total += productData.price;
+
+      console.log(state.cart)
+      console.log(state.total)
     },
-    addRemoveCart(state, payload) {
 
-      // Adicionando ou removendo item
-      payload.toAdd ?
-        state.cart.push(payload.product) :
-        state.cart = state.cart.filter(function (obj) {
-          return obj.id !== payload.product.id;
-        });
-
-      // Calculando o total
-      state.cartTotal = state.cart.reduce((accumulator, object) => {
-
-        return parseFloat(accumulator) + parseFloat(object.price * object.qty);
-      }, 0);
-
-      // Salvando no local storage do navegador
-      localStorage.setItem('cartTotal', JSON.stringify(state.cartTotal));
-      localStorage.setItem('cart', JSON.stringify(state.cart));
-    },
-    updateCart(state, payload) {
-      // Atualizando a quantidade
-      state.cart.find(o => o.id === payload.product.id).qty = payload.product.qty;
-
-      // Calculando o total
-      state.cartTotal = state.cart.reduce((accumulator, object) => {
-        return parseFloat(accumulator) + parseFloat(object.price * object.qty);
-      }, 0);
-
-      // Salvando no local storage
-      localStorage.setItem('cartTotal', JSON.stringify(state.cartTotal));
-      localStorage.setItem('cart', JSON.stringify(state.cart));
+    removeProductFromCart(state, payload) {
+      const prodId = payload.id;
+      const productInCartIndex = state.cart.findIndex(
+        (cartItem) => cartItem.id === prodId
+      );
+      const prodData = state.cart[productInCartIndex];
+      state.cart.splice(productInCartIndex, 1);
+      state.qty -= prodData.qty;
+      state.total -= prodData.price * prodData.qty;
     },
   },
-  actions: {},
-  getters: {},
+  actions: {
+    addToCart(context, payload) {
+      console.log(context)
+      //console.log(payload.id)
+      const prodId = payload.id;
+      const products = context.rootGetters.filteredProducts;
+      console.log(products)
+      const product = products.find((prod) => prod.id === prodId);
+      context.commit("addProductToCart", product);
+    },
+    removeFromCart(context, payload) {
+      context.commit("removeProductFromCart", payload);
+    },
+  },
+  getters: {
+    products(state) {
+      return state.products;
+    },
+    totalSum(state) {
+      return state.total;
+    },
+    quantity(state) {
+      return state.qty;
+    },
+    cart(state) {
+      return state.cart;
+    }
+  },
 }

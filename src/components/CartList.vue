@@ -11,20 +11,22 @@
       <p>Categoria: {{ product.type }}</p>
 
       <div class="flex justify-between items-center mt-2">
-        <CartButton :product="product"/>
         <h3 class="text-2xl"><span class="text-green-800">R$:</span> {{ product.price }}</h3>
+
+        <p>Quantidade: {{product.qty}}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import CartButton from '../components/CartButton.vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
 
 const props = defineProps({
   products: Array
 })
-
 </script>
 
 <style></style>
